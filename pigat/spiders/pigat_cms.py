@@ -23,8 +23,8 @@ class pigat_ip(scrapy.Spider):
 		collection = client['pigat']['pigat_subdomain']  # 读取数据
 		if list(collection.find({'url': url})) == []:  # 判断数据是否为空
 			print(
-				'\n\033[1;31;40m[{}] 数据库中未查询到 {} 的子域信息，请先获取 {} 的子域信息\n\033[0m'.format(time.strftime('%Y-%m-%d %H:%M:%S'),
-				                                                                    url, url))
+				'\n\033[1;31;40m[{}] 数据库中未查询到 {} 的子域信息，无法进行 {} 的 CMS 信息，请先获取 {} 的子域信息\n\033[0m'.format(time.strftime('%Y-%m-%d %H:%M:%S'),
+				                                                                    url, url, url))
 		else:
 			print('\n\033[1;33;40m[{}] 正在被动收集 {} 的子域 CMS 信息……\033[0m'.format(time.strftime('%Y-%m-%d %H:%M:%S'), url))
 			for i in collection.find({'url': url}):
